@@ -16,21 +16,11 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-### КОД ДЛЯ СОЗДАНИЯ ТАБЛИЦЫ
-# CREATE TABLE IF NOT EXISTS page_metrics (
-#     url String,
-#     lcp Float64,
-#     tbt Float64,
-#     date Date,
-#     PRIMARY KEY (url, date)
-# ) ENGINE = MergeTree()
-# ORDER BY (url, date);
-
 dag = DAG(
     'collect_page_metrics_daily',
     default_args=default_args,
     description='A DAG to collect Google PageSpeed Insights metrics daily and save to ClickHouse',
-    schedule_interval=timedelta(days=1),
+    schedule_interval='0 10 * * *'
 )
 
 def load_urls_from_csv():
