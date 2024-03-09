@@ -1,4 +1,4 @@
-// КОД ДЛЯ СОЗДАНИЯ ТАБЛИЦЫ
+-- КОД ДЛЯ СОЗДАНИЯ ТАБЛИЦЫ
 CREATE TABLE IF NOT EXISTS page_metrics (
     url String,
     lcp Float64,
